@@ -1,0 +1,26 @@
+<body>
+  <div class="container">
+    <!--- inicio del menu-->
+     <nav class="navbar navbar-expand-lg navbar-light bg-dark">
+       <div class="container-fluid">
+         <a class="navbar-brand text-white" href="#" >Menú</a>
+         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+           <span class="navbar-toggler-icon"></span>
+         </button>
+         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+             <div class="navbar-nav">
+               <a class="nav-link active text-white" aria-current="page" [routerLink]="['/principal']">Principal</a>
+               <a class="nav-link text-white" [routerLink]="['/filosofico']"  routerLinkActive="active" >Filosoficos</a>
+               <a class="nav-link text-white" [routerLink]="['/ciencia']"  routerLinkActive="active" >Ciencias</a>
+               <a class="nav-link text-white" [routerLink]="['/tecnologico']"  routerLinkActive="active" >Tecnologicos</a>
+               <a class="nav-link text-white" [routerLink]="['/servicio']"  routerLinkActive="active" >Servicio</a>
+             </div>
+         </div>
+       </div>
+      </nav>
+      <!---fin del menu-->
+      <br>
+  </div>    
+</body>
+<!---[routerLink]="['/#####']"  routerLinkActive="active" 
+  Es el que te hace que puedas navegar entre paginas-->

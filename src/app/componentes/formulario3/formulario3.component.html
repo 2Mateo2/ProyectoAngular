@@ -1,0 +1,88 @@
+<body>
+    <div class="container">
+        <article>
+            <h2 class="fw-bolder"></h2>
+            <h1 class="fw-bolder fst-italic text-center">SALA DE LECTURA</h1> 
+            <h5 class="fst-italic text-center">Contamos con 51 puesto de lectura, pero actualmente solo disponemos de 10 puesto de lectura, por la situacion del covid.</h5> 
+            <h2 class="fw-bolder fst-italic">_______________________________________________________________________________________</h2><br>
+            <div class="row">
+                <div class="col-xl-6 col-lg-6  col-md-6  col-sm-6 col-6  ">
+                        <form id="miForm"  autocomplete="off">
+                                <label class="fw-bolder fst-italic">PUESTO</label> <br>
+                                <select class="form-select fst-italic" [(ngModel)]="selectedPuestoObj.puesto" name="puesto">
+                                  <option selected>Puesto...</option>
+                                  <option value="5">5</option>
+                                  <option value="10">10</option>
+                                  <option value="15">15</option>
+                                  <option value="20">20</option>
+                                  <option value="25">25</option>
+                                  <option value="30">30</option>
+                                  <option value="35">35</option>
+                                  <option value="40">40</option>
+                                  <option value="45">45</option>
+                                  <option value="50">50</option>
+                                </select><br> 
+                                
+                                <label class="fw-bolder fst-italic">HORARIO</label> <br>
+                                <select class="form-select fst-italic" [(ngModel)]="selectedPuestoObj.tiempo" name="tiempo">
+                                    <option selected>Horario...</option>
+                                    <option value="7 am">7 am</option>
+                                    <option value="10 am">10 am</option>
+                                    <option value="1 pm">1 pm</option>
+                                    <option value="4 pm">4 pm</option>
+                                    <option value="7 pm">7 pm</option>
+                                    <option value="10 pm">10 pm</option>
+                                  </select><br> 
+                
+                                  <button type="button" class="btn btn-primary fw-bolder fst-italic" (click)="agregar()">Reservar lugar</button>                
+                                  <button type="button" [disabled]="btnDisabled" class="btn btn-warning fw-bolder fst-italic mx-3" (click)="guardarEdit()" > Guardar Cambios</button>
+                                  <br><br>
+                                  <h6 class="fw-bolder fst-italic">¿Quieres saber la relacion de cada una de las tablas? <a href="../../../assets/img/Modelo entidad-relacion-Biblioteca.png" target="_blank" class="fw-bolder fst-italic text-center" >Ver</a></h6>
+                          </form>
+                 </div>
+                 
+                 <div class="col-xl-6 col-lg-6  col-md-6  col-sm-6 col-6 text-center ">
+                    <img src="../../../assets/img/reserva-de--cupo.jpg" width="300">  
+                 </div>
+             </div>
+             <h2 class="fw-bolder fst-italic">_______________________________________________________________________________________</h2>
+             <br>
+             
+             <div class="row">
+                <div class="col-xl-8 col-lg-8  col-md-8  col-sm-8 col-8  ">
+                 
+                  <table class="table table-hover table-dark fst-italic">
+                    <thead *ngIf="mostrar === true">  
+                     <tr>
+                     <th>ID</th> 
+                     <th>Puesto</th>
+                     <th>Tiempo</th>               
+                     <th class="text-center">Opcion</th>
+                     </tr>   
+                   </thead>
+                   <tbody>
+                     <tr *ngFor="let puesto of puestoArray;let i= index" class="text-center">
+                       
+                       <td>{{puesto.id}}</td>
+                       <td>{{puesto.puesto}}</td>                
+                       <td>{{puesto.tiempo}}</td>                        
+                       <td>
+                        <button class="btn btn-sm btn-warning" (click)="editar(puesto)">Edit</button> 
+                        <button class="btn btn-sm btn-danger mx-4" (click)="eliminar(i)">Eliminar</button> 
+                       </td>
+                      
+                     </tr>
+                   </tbody>
+                   </table> 
+                
+                </div>
+                <div class="col-xl-4 col-lg-4  col-md-4  col-sm-4 col-4  ">
+  
+                </div>
+              </div>
+        
+               <h2 class="fw-bolder fst-italic text-center"> <a href="../index.html">Regresar a la pagina principal</a></h2> 
+               <br>   
+        </article>    
+    </div>        
+</body>

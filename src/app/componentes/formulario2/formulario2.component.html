@@ -1,0 +1,100 @@
+<body>
+    <div class="container">
+        <article>
+            <h2 class="fw-bolder"></h2>
+                <h1 class="fw-bolder fst-italic  text-center">PRESTAMO DE LIBROS</h1> 
+                <h5 class="fst-italic text-center">Bienvenido a nuestro registro para el prestamo de libros, por favor digiteme los datos pertinentes y asi podemos hacerte entrega temporal de nuestros libros.</h5> 
+                <h2 class="fw-bolder fst-italic">_______________________________________________________________________________________</h2><br>
+                <div class="row">
+                    <div class="col-xl-6 col-lg-6  col-md-6  col-sm-6 col-6  ">
+                            <form autocomplete="off">
+                              
+                              <label class="fw-bolder fst-italic">CATEGORIA</label><br>
+          
+                              <select class="form-select fst-italic" [(ngModel)]="selectedLibrosObj.categoria" name="categoria" >
+                                <option selected>Categorias...</option>
+                                <option value="Filosofia">Filosofia</option>
+                                <option value="Ciencia">Ciencia</option>
+                                <option value="Tecnologia">Tecnologia</option>
+                                <option value="Literatura">Literatura</option>
+                                <option value="Politica">Politica</option>
+                                <option value="Arte">Arte</option>
+                              </select><br>
+                              
+                              <label class="fw-bolder fst-italic">TITULO DEL LIBRO</label> <br>
+                              <input type="text" class="form-control" [(ngModel)]="selectedLibrosObj.titulo" name="titulo" > <br>
+                              
+                              <label class="fw-bolder fst-italic"> NOMBRE DEL AUTOR</label> <br>
+                              <input type="text" class="form-control" [(ngModel)]="selectedLibrosObj.nombre" name="nombre"> <br>
+          
+                              <label class="fw-bolder fst-italic">TIEMPO DE PRESTAMO</label><br>
+          
+                              <select class="form-select fst-italic"  [(ngModel)]="selectedLibrosObj.tiempo " name="tiempo">
+                                <option selected>Tiempo...</option>
+                                <option value="4 horas - 6 horas">4 horas - 6 horas</option>
+                                <option value="8 horas - 10 horas">8 horas - 10 horas</option>
+                                <option value="Un dia">Un dia </option>
+                                <option value="2 dias">2 dias </option>
+                                <option value="4 dias">4 dias</option>
+                                <option value="Una semana">Una semana</option>
+                              </select><br>
+
+                              <button type="button" class="btn btn-primary fw-bolder fst-italic" (click)="agregar()">Prestar libro</button>                
+                              <button type="button" [disabled]="btnDisabled" class="btn btn-warning fw-bolder fst-italic mx-3" (click)="guardarEdit()" > Guardar Cambios</button>   
+                              <br><br>
+                              <h6 class="fw-bolder fst-italic">¿Quieres saber la relacion de cada una de las tablas? <a href="../../../assets/img/Modelo entidad-relacion-Biblioteca.png" target="_blank" class="fw-bolder fst-italic text-center" >Ver</a></h6>
+                              </form>
+                     </div>
+
+                     <div class="col-xl-6 col-lg-6  col-md-6  col-sm-6 col-6 text-center ">
+                      <img src="../../../assets/img/PRESTAMO__LIBROS.png" width="500">
+                    </div>
+
+                
+                 </div>
+                 <br>
+
+                 <h2 class="fw-bolder fst-italic">_______________________________________________________________________________________</h2><br>
+                 
+                 <div class="row">
+                  <div class="col-xl-8 col-lg-8  col-md-8  col-sm-8 col-8  ">
+                   
+                    <table class="table table-hover table-dark fst-italic">
+                      <thead *ngIf="mostrar === true">  
+                       <tr>
+                       <th>ID</th> 
+                       <th>Categoria</th>
+                       <th>Titulo</th>
+                       <th>Nombre del Autor</th> 
+                       <th>Tiempo de prestamo</th>  
+                       <th class="text-center">Opcion</th>
+                       </tr>   
+                     </thead>
+                     <tbody>
+                       <tr *ngFor="let libro of libroArray;let i= index">
+                         
+                         <td>{{libro.id}}</td>
+                         <td>{{libro.categoria}}</td>
+                         <td>{{libro.titulo}}</td>
+                         <td>{{libro.nombre}}</td>
+                         <td>{{libro.tiempo}}</td>                        
+                         <td>
+                          <button class="btn btn-sm btn-warning" (click)="editar(libro)">Edit</button> 
+                          <button class="btn btn-sm btn-danger mx-4" (click)="eliminar(i)">Eliminar</button> 
+                         </td>
+                        
+                       </tr>
+                     </tbody>
+                     </table> 
+                  
+                  </div>
+                  <div class="col-xl-4 col-lg-4  col-md-4  col-sm-4 col-4  ">
+    
+                  </div>
+                </div>
+                
+                <h2 class="fw-bolder fst-italic text-center"> <a href="../index.html">Regesar a la pagina principal</a></h2> 
+                <br>    
+        </article>    
+    </div>        
+</body>
